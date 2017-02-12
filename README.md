@@ -25,16 +25,30 @@ Getting Started
 ---------------
 
 ```
-    git clone https://github.com/clevertechru/solar.git
-    cd solar
+    git clone https://github.com/clevertechru/solar.git && cd solar
     bundle install
+    mv config/secrets.example.yml config/secrets.yml
+    mv config/database.example.yml config/database.yml
+    vim config/database.yml
+    rake db:migrate
     rails s
     http://localhost:3000
-
-    or run docker image https://hub.docker.com/r/clevertechru/solar/
-    docker pull clevertechru/solar
-    docker run -p 3000:3000 -d --name docker-solar clevertechru/solar
 ```
+
+``` 
+    mkdir solar && cd solar
+    docker pull clevertechru/docker-solar
+    mkdir config && wget https://raw.githubusercontent.com/clevertechru/solar/master/config/database.example.yml -O ./config/database.yml
+    vim config/database.yml
+    docker run -p 3003:3000 -d -v /[fullpath]/config/database.yml:/app/config/database.yml --name solar-app clevertechru/docker-solar
+    docker exec -it solar-app bundle exec rake db:migrate
+```
+```
+    echo 'docker compose is not working now ;('
+    mkdir solar && cd solar
+    wget https://raw.githubusercontent.com/clevertechru/solar/master/docker-compose.yml -O docker-compose.yml
+    docker-compose up  
+```    
 Documentation and Support
 -------------------------
 
