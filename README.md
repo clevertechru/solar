@@ -40,7 +40,7 @@ Getting Started
     docker pull clevertechru/docker-solar
     mkdir config && wget https://raw.githubusercontent.com/clevertechru/solar/master/config/database.example.yml -O ./config/database.yml
     vim config/database.yml
-    docker run -p 3003:3000 -d -v /[fullpath]/config/database.yml:/app/config/database.yml --name solar-app clevertechru/docker-solar
+    docker run -p 3003:3000 -d -v $(pwd)/config/database.yml:/app/config/database.yml --name solar-app clevertechru/docker-solar
     docker exec -it solar-app bundle exec rake db:migrate
 ```
 ```
