@@ -40,8 +40,12 @@ class VideosController < ApplicationController
   # PATCH/PUT /videos/1
   # PATCH/PUT /videos/1.json
   def update
+    recreate = @video.watermark != video_params[:watermark]
     respond_to do |format|
       if @video.update(video_params)
+
+        @video.file.recreate_versions! if recreate
+
         format.html { redirect_to @video, notice: 'Video was successfully updated.' }
         format.json { render :show, status: :ok, location: @video }
       else

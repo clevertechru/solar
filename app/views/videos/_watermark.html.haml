@@ -1,0 +1,10 @@
+= simple_form_for(video, remote: true) do |f|
+  = f.error_notification
+  %br
+  .row
+    .form-inputs.col-md-6
+      = f.input :watermark, label: false
+    .form-actions.col-md-3
+      = f.button :submit, 'Update watermark', onclick: "javascript: $(#{dom_id(video)}).html('in progress ...')"
+    .col-md-3
+      .refresh-txt{id: dom_id(video)}
