@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211134515) do
+ActiveRecord::Schema.define(version: 20170211152946) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -47,5 +47,15 @@ ActiveRecord::Schema.define(version: 20170211134515) do
   add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "videos", force: :cascade do |t|
+    t.string  "title",     limit: 255
+    t.string  "watermark", limit: 255
+    t.integer "width",     limit: 4
+    t.integer "height",    limit: 4
+    t.integer "duration",  limit: 4
+    t.string  "file",      limit: 255
+    t.boolean "success"
+  end
 
 end

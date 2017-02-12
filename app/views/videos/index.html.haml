@@ -1,0 +1,39 @@
+.container
+  .row
+    .col-lg-12
+      %h1.page-header
+        VIDEOS
+        %small .
+  - @videos.each do |video|
+    .row
+      .col-md-7
+        = videojs_rails sources: { mp4: video.file.url(:mp4), webm: video.file.url(:webm) }, width:'400'
+      .col-md-5
+        = image_tag(video.file.thumb, class: 'img-responsive')
+        -#%h3 Project One
+        -#%h4 Subheading
+        -#%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.
+        -#%a.btn.btn-primary{:href => "#"}
+          View page
+          %span.glyphicon.glyphicon-chevron-right
+    %hr/
+  / Pagination
+  .row.text-center
+    .col-lg-12
+      - if @videos.try(:pages)
+        = pagination(@videos)
+      -#%ul.pagination
+        %li
+          %a{:href => "#"} «
+        %li.active
+          %a{:href => "#"} 1
+        %li
+          %a{:href => "#"} »
+  / /.row
+  %hr/
+  / Footer
+  %footer
+    .row
+      .col-lg-12
+        %p Copyright © Solar 2017
+    / /.row

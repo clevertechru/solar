@@ -1,0 +1,13 @@
+= simple_form_for(@video) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :watermark
+    -#= f.input :width
+    -#= f.input :height
+    -#= f.input :duration
+    = f.input :file, as: :file
+
+  .form-actions
+    = f.button :submit, 'Upload video'

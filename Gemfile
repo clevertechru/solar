@@ -6,13 +6,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-group :development, :test do
-  gem 'byebug'
-end
-group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
 gem 'administrate'
 gem 'bootstrap-sass'
 gem 'bourbon'
@@ -20,9 +13,15 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'haml-rails'
 gem 'high_voltage'
+gem 'pg'
 gem 'mysql2', '~> 0.3.18'
 gem 'pundit'
 gem 'simple_form'
+gem 'carrierwave-video', git: 'https://github.com/clevertechru/carrierwave-video.git'
+gem 'carrierwave-video-thumbnailer'
+gem 'magick_title', '>= 0.2.0'
+gem 'videojs_rails'
+gem 'kaminari'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
@@ -39,6 +38,8 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -47,6 +48,7 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'byebug'
 end
 group :test do
   gem 'capybara'

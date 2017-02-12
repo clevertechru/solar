@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @video.title
+%p
+  %b Watermark:
+  = @video.watermark
+%p
+  %b Width:
+  = @video.width
+%p
+  %b Height:
+  = @video.height
+%p
+  %b Duration:
+  = @video.duration
+
+= link_to 'Edit', edit_video_path(@video)
+\|
+= link_to 'Back', videos_path

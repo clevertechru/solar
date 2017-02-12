@@ -10,4 +10,5 @@
       = link_to 'Home', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
+        %li= link_to 'Add video', new_video_path
         = render 'layouts/navigation_links'
